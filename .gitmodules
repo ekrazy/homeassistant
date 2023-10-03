@@ -1,0 +1,3 @@
+[submodule "ha-addon"]
+	path = ha-addon
+	url = https://github.com/CoolKit-Technologies/ha-addon.git

@@ -1,0 +1,21 @@
+version: "3"
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - ./config:/config
+    environment:
+      - TZ=America/Mexico_City
+    restart: unless-stopped
+    network_mode: host
+
+  ewelink_smart_home:
+    image: ewelink_smart_home
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - HA_URL=http://localhost:8123
+      - SUPERVISOR_TOKEN=${SUPERVISOR_TOKEN}
+    volumes:
+      - ./volume:/data
