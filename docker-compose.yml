@@ -15,7 +15,18 @@ services:
     restart: unless-stopped
     network_mode: host
     environment:
-      - HA_URL=http://localhost:8123
-      - SUPERVISOR_TOKEN=${SUPERVISOR_TOKEN}
+      - HA_URL=http://192.168.88.233:8123
+      - SUPERVISOR_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxMmZkZDM5Y2VmMWI0YTAyOWU1NWY3ZDEyNWVhN2I0YiIsImlhdCI6MTczOTM1Mjc3MCwiZXhwIjoyMDU0NzEyNzcwfQ.8ypbIC53XsUdtPuK9-6ETt8W3agosct5TOfe868Izi4
     volumes:
       - ./volume:/data
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    volumes:
+      - ./mosquitto:/mosquitto
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
