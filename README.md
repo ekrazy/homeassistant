@@ -12,3 +12,5 @@ firts you need to buid the ewelink image
 ## run it
 
 `docker-compose up -d`
+`Link for more Info https://www.homeautomationguy.io/blog/docker-tips/configuring-the-mosquitto-mqtt-docker-container-for-use-with-home-assistant`
+
